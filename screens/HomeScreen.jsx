@@ -1,8 +1,9 @@
 import { StatusBar } from "expo-status-bar";
-import { Text, TextInput, View } from "react-native";
+import { ScrollView, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import * as Icon from "react-native-feather";
 import { themeColors } from "../themes";
+import Categories from "../components/Categories";
 
 export default function HomeScreen() {
   return (
@@ -20,7 +21,10 @@ export default function HomeScreen() {
             <Text className="text-gray-500 text-xs">New York, NYC</Text>
           </View>
         </View>
-        <View className=" p-2 rounded-full " style={{backgroundColor:themeColors.bgColor(5)}}>
+        <View
+          className=" p-2 rounded-full "
+          style={{ backgroundColor: themeColors.bgColor(5) }}
+        >
           <Icon.Sliders
             height="14"
             width="14"
@@ -29,6 +33,15 @@ export default function HomeScreen() {
           ></Icon.Sliders>
         </View>
       </View>
+      {/* Main content area */}
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{
+          paddingBottom: 20,
+        }}
+      >
+        <Categories />
+      </ScrollView>
     </SafeAreaView>
   );
 }
